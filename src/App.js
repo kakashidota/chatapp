@@ -66,7 +66,7 @@ function ChatRoom() {
   //skapar en referens till vår databas
   const messageRef = firestore.collection('messages');
   //Skapar en query efter de 25 senaste messages
-  const query = messageRef.orderBy('createdAt').limit(25);
+  const query = messageRef.orderBy('createdAt').limitToLast(25);
   //ANvädner oss av en Hook som lyssnar på vår data hela tiden
   const [messages] = useCollectionData(query, {idField: 'id'});
 
